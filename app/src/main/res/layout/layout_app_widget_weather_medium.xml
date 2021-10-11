@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Copyright 2021 LiteKite Startup. All rights reserved.
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_weather"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_widget_weather_background"
+    android:padding="@dimen/widget_padding">
+
+    <LinearLayout
+        android:id="@+id/ll_top_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/widget_weather_icon"
+            android:layout_width="@dimen/widget_element_min_length"
+            android:layout_height="@dimen/widget_element_min_length"
+            android:contentDescription="@string/widget_weather_icon"
+            android:src="@drawable/ic_partly_cloudy" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_weather_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/widget_weather_location"
+                android:textAlignment="textEnd"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/widget_weather_mostly_cloudy"
+                android:textAlignment="textEnd"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_top_view"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/widget_weather_degree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/widget_weather_degree"
+                android:textColor="@color/white"
+                android:textSize="48sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/widget_weather_degree_two"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="@string/widget_weather_degree_two"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/widget_weather_degree_three"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="@string/widget_weather_degree_three"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:orientation="horizontal">
+
+            <include layout="@layout/layout_app_widget_weather_forecast_item" />
+
+            <include layout="@layout/layout_app_widget_weather_forecast_item" />
+
+            <include layout="@layout/layout_app_widget_weather_forecast_item" />
+
+            <include layout="@layout/layout_app_widget_weather_forecast_item" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -13,20 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.litekite.sample
+package com.litekite.sample.main
 
-import org.junit.Assert.assertEquals
-import org.junit.Test
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.litekite.sample.R
 
-/**
- * Example local unit test, which will execute on the development machine (host).
- *
- * See [testing documentation](http://d.android.com/tools/testing).
- */
-class ExampleUnitTest {
-    @Test
-    fun addition_isCorrect() {
-        val result = 2 + 2
-        assertEquals(4, result)
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.layout_main)
     }
 }

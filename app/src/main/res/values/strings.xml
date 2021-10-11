@@ -16,4 +16,16 @@
 -->
 <resources>
     <string name="app_name">AppWidgets</string>
+    <string name="placeholder_main_activity">This is an Activity of the AppWidget sample.
+        Long press the app icon and choose the widget picker to try the widgets in the sample</string>
+    <string name="widget_weather_location">Chennai</string>
+    <string name="widget_weather_mostly_cloudy">Mostly cloudy</string>
+    <string name="widget_weather_degree">14°</string>
+    <string name="widget_weather_degree_two">10°</string>
+    <string name="widget_weather_degree_three">12°</string>
+    <string name="widget_weather_icon">Widget Icon</string>
+    <string name="rainy_icon">Rainy Icon</string>
+    <string name="pm_4">4pm</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="empty_view_text">This is the empty view</string>
 </resources>
