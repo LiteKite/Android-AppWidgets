@@ -19,6 +19,6 @@
     <corners android:radius="@dimen/widget_padding" />
     <gradient
         android:angle="270"
-        android:endColor="#ff333333"
-        android:startColor="#ff666666" />
+        android:endColor="?gradientEndColor"
+        android:startColor="?gradientStartColor" />
 </shape>

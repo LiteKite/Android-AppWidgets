@@ -15,18 +15,20 @@
    limitations under the License.
 -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/widget_weather"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/app_widget_weather_background"
-    android:padding="@dimen/widget_padding">
+    android:padding="@dimen/widget_padding"
+    android:theme="@style/Theme.AppWidgets">
 
     <ImageView
         android:id="@+id/widget_weather_icon"
         android:layout_width="@dimen/widget_element_min_length"
         android:layout_height="@dimen/widget_element_min_length"
         android:contentDescription="@string/widget_weather_icon"
-        android:src="@drawable/ic_partly_cloudy" />
+        app:srcCompat="@drawable/ic_partly_cloudy" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -35,7 +37,7 @@
         android:layout_toEndOf="@+id/widget_weather_icon"
         android:text="@string/widget_weather_location"
         android:textAlignment="textEnd"
-        android:textColor="@color/white"
+        android:textColor="?android:textColorPrimary"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -45,7 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/widget_weather_icon"
         android:text="@string/widget_weather_degree"
-        android:textColor="@color/white"
+        android:textColor="?android:textColorPrimary"
         android:textSize="48sp" />
 
     <TextView
@@ -55,7 +57,7 @@
         android:layout_below="@+id/widget_weather_degree"
         android:layout_margin="5dp"
         android:text="@string/widget_weather_degree_two"
-        android:textColor="@color/white"
+        android:textColor="?android:textColorSecondary"
         android:textSize="18sp" />
 
     <TextView
@@ -66,7 +68,7 @@
         android:layout_margin="5dp"
         android:layout_toEndOf="@+id/widget_weather_degree_two"
         android:text="@string/widget_weather_degree_three"
-        android:textColor="@color/white"
+        android:textColor="?android:textColorSecondary"
         android:textSize="18sp" />
 
 </RelativeLayout>

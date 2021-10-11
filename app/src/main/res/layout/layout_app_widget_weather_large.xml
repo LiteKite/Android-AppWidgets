@@ -20,7 +20,8 @@
     android:layout_height="wrap_content"
     android:background="@drawable/app_widget_weather_background"
     android:orientation="vertical"
-    android:padding="@dimen/widget_padding">
+    android:padding="@dimen/widget_padding"
+    android:theme="@style/Theme.AppWidgets">
 
     <LinearLayout
         android:id="@+id/ll_top_view"
@@ -47,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/widget_weather_location"
                 android:textAlignment="textEnd"
-                android:textColor="@color/white"
+                android:textColor="?android:textColorPrimary"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -56,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/widget_weather_mostly_cloudy"
                 android:textAlignment="textEnd"
-                android:textColor="@color/white"
+                android:textColor="?android:textColorPrimary"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -80,7 +81,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/widget_weather_degree"
-                android:textColor="@color/white"
+                android:textColor="?android:textColorPrimary"
                 android:textSize="48sp" />
 
             <LinearLayout
@@ -94,7 +95,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:text="@string/widget_weather_degree_two"
-                    android:textColor="@color/white"
+                    android:textColor="?android:textColorSecondary"
                     android:textSize="18sp" />
 
                 <TextView
@@ -103,7 +104,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:text="@string/widget_weather_degree_three"
-                    android:textColor="@color/white"
+                    android:textColor="?android:textColorSecondary"
                     android:textSize="18sp" />
 
             </LinearLayout>

@@ -16,7 +16,8 @@
 -->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:theme="@style/Theme.AppWidgets">
 
     <StackView
         android:id="@+id/stack_view"
@@ -32,7 +33,7 @@
         android:background="@drawable/app_widget_weather_background"
         android:gravity="center"
         android:text="@string/empty_view_text"
-        android:textColor="#ffffff"
+        android:textColor="?android:textColorPrimary"
         android:textSize="20sp"
         android:textStyle="bold" />
 

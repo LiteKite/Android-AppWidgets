@@ -27,7 +27,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:text="@string/widget_weather_degree"
-        android:textColor="@color/white" />
+        android:textColor="?android:textColorSecondary" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -43,6 +43,6 @@
         android:layout_weight="1"
         android:minHeight="@dimen/widget_element_min_length"
         android:text="@string/pm_4"
-        android:textColor="@color/white" />
+        android:textColor="?android:textColorSecondary" />
 
 </LinearLayout>
