@@ -124,19 +124,12 @@ class WeatherAppWidgetProvider : AppWidgetProvider() {
 
         val minWidth = widgetOptions.getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_WIDTH)
         val minHeight = widgetOptions.getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_HEIGHT)
-        val maxWidth = widgetOptions.getInt(AppWidgetManager.OPTION_APPWIDGET_MAX_WIDTH)
-        val maxHeight = widgetOptions.getInt(AppWidgetManager.OPTION_APPWIDGET_MAX_HEIGHT)
 
-        Log.d(TAG, "onAppWidgetOptionsChanged: minWidth: $minWidth")
-        Log.d(TAG, "onAppWidgetOptionsChanged: minHeight: $minHeight")
-        Log.d(TAG, "onAppWidgetOptionsChanged: maxWidth: $maxWidth")
-        Log.d(TAG, "onAppWidgetOptionsChanged: maxHeight: $maxHeight")
-
-        val views: RemoteViews = RemoteViews(
-            context.packageName,
-            R.layout.layout_app_widget_weather_small
+        val views: RemoteViews? = createRemoteViews(
+            context,
+            SizeF(minWidth.toFloat(), minHeight.toFloat())
         ).apply {
-            setOnClickPendingIntent(R.id.widget_weather, getWidgetPendingIntent(context))
+            this?.setOnClickPendingIntent(R.id.widget_weather, getWidgetPendingIntent(context))
         }
 
         appWidgetManager.updateAppWidget(appWidgetId, views)
@@ -158,10 +151,34 @@ class WeatherAppWidgetProvider : AppWidgetProvider() {
         )
     }
 
-    // Create the RemoteViews for the given size.
-    private fun createRemoteViews(context: Context, size: SizeF): RemoteViews {
+    /**
+     * Creates the RemoteViews for the given size.
+     *
+     * Specify the minimum width and height in dp and a layout,
+     * which you want to use for the specified size
+     *
+     * In the following case:
+     *
+     * - Small is used from
+     * 180dp (or minResizeWidth) x 120dp (or minResizeHeight)
+     * to 269dp (next cutoff point - 1) x 269dp (next cutoff point - 1)
+     *
+     * - Medium is used from
+     * 270dp x 110dp to 270dp x 279dp (next cutoff point - 1)
+     *
+     * - Large is used from
+     * 270dp x 280dp to 570dp (specified as maxResizeWidth) x 450dp (specified as maxResizeHeight)
+     */
+    private fun createRemoteViews(context: Context, size: SizeF): RemoteViews? {
         Log.d(TAG, "createRemoteViews: size: $size")
-        return RemoteViews(context.packageName, R.layout.layout_app_widget_weather_small)
+        if (size.width in 180f..269f && size.height in 120f..269f) {
+            return RemoteViews(context.packageName, R.layout.layout_app_widget_weather_small)
+        } else if (size.width in 270f..329f && size.height in 120f..180f) {
+            return RemoteViews(context.packageName, R.layout.layout_app_widget_weather_medium)
+        } else if (size.width in 270f..570f && size.height in 120f..450f) {
+            return RemoteViews(context.packageName, R.layout.layout_app_widget_weather_large)
+        }
+        return null
     }
 
     /**
