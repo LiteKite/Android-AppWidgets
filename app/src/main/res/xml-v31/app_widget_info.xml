@@ -15,7 +15,7 @@
    limitations under the License.
 -->
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
-    android:configure="com.litekite.sample.appwidget.AppWidgetConfigActivity"
+    android:configure="com.litekite.sample.appwidget.weather.AppWidgetConfigActivity"
     android:description="@string/app_name"
     android:initialLayout="@layout/layout_app_widget_weather_small"
     android:minWidth="180dp"

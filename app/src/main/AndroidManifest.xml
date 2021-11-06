@@ -15,9 +15,11 @@
    limitations under the License.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.litekite.sample">
 
     <application
+        android:name=".app.WidgetsApp"
         android:allowBackup="true"
         android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"
@@ -25,6 +27,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppWidgets">
+
+        <!-- If you want to disable android.startup completely. -->
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            tools:node="remove" />
 
         <activity
             android:name=".main.MainActivity"
@@ -37,7 +45,7 @@
         </activity>
 
         <activity
-            android:name=".appwidget.AppWidgetConfigActivity"
+            android:name=".appwidget.weather.AppWidgetConfigActivity"
             android:exported="false">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
@@ -45,7 +53,7 @@
         </activity>
 
         <receiver
-            android:name=".appwidget.WeatherAppWidgetProvider"
+            android:name=".appwidget.weather.WeatherAppWidgetProvider"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />

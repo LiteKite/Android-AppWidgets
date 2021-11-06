@@ -17,12 +17,12 @@
 <resources>
     <!-- Base application theme. -->
     <style name="Theme.AppWidgets" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <!-- Primary brand color. -->
+        <item name="fontFamily">@font/raleway_regular</item>
+        <item name="android:fontFamily">@font/raleway_regular</item>
         <item name="android:textColorPrimary">@color/white</item>
         <item name="android:textColorSecondary">@color/white</item>
         <item name="colorControlNormal">@color/white</item>
         <item name="gradientStartColor">@color/dark_blue_200</item>
         <item name="gradientEndColor">@color/dark_blue_500</item>
-        <!-- Customize your theme here. -->
     </style>
 </resources>

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.litekite.sample.appwidget
+package com.litekite.sample.appwidget.weather
 
 import android.app.Activity
 import android.appwidget.AppWidgetManager
