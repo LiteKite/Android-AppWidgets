@@ -19,10 +19,10 @@
     <style name="Theme.AppWidgets" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <item name="fontFamily">@font/raleway_regular</item>
         <item name="android:fontFamily">@font/raleway_regular</item>
-        <item name="android:textColorPrimary">@color/black</item>
-        <item name="android:textColorSecondary">@color/black</item>
-        <item name="colorControlNormal">@color/black</item>
-        <item name="gradientStartColor">@color/water_blue_200</item>
-        <item name="gradientEndColor">@color/water_blue_500</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/white</item>
+        <item name="colorControlNormal">@color/white</item>
+        <item name="gradientStartColor">@color/sky_blue_200</item>
+        <item name="gradientEndColor">@color/sky_blue_500</item>
     </style>
 </resources>

@@ -21,7 +21,7 @@
     android:minHeight="@dimen/widget_weather_min_height"
     android:minResizeWidth="@dimen/widget_weather_min_width"
     android:minResizeHeight="@dimen/widget_weather_min_height"
-    android:previewImage="@drawable/widget_preview_weather_forecast"
+    android:previewImage="@drawable/widget_preview_weather"
     android:resizeMode="horizontal|vertical"
     android:updatePeriodMillis="1800000"
     android:widgetCategory="home_screen" />

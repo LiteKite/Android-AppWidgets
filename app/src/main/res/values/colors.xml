@@ -17,8 +17,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="dark_blue_500">#0C1793</color>
-    <color name="dark_blue_200">#545cb3</color>
-    <color name="water_blue_500">#0E87CC</color>
-    <color name="water_blue_200">#6eb7e0</color>
+    <color name="dark_blue_500">#363795</color>
+    <color name="dark_blue_200">#005C97</color>
+    <color name="sky_blue_500">#0072FF</color>
+    <color name="sky_blue_200">#00C6FF</color>
 </resources>
