@@ -19,7 +19,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/app_widget_weather_background"
-    android:padding="@dimen/widget_padding"
+    android:padding="@dimen/widget_weather_padding"
     android:theme="@style/Theme.AppWidgets">
 
     <LinearLayout
@@ -30,8 +30,8 @@
 
         <ImageView
             android:id="@+id/widget_weather_icon"
-            android:layout_width="@dimen/widget_element_min_length"
-            android:layout_height="@dimen/widget_element_min_length"
+            android:layout_width="@dimen/widget_weather_icon_size"
+            android:layout_height="@dimen/widget_weather_icon_size"
             android:contentDescription="@string/widget_weather_icon"
             android:src="@drawable/ic_partly_cloudy" />
 

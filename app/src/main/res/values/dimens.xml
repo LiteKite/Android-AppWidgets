@@ -15,6 +15,10 @@
    limitations under the License.
 -->
 <resources>
-    <dimen name="widget_padding">12dp</dimen>
-    <dimen name="widget_element_min_length">48dp</dimen>
+    <dimen name="widget_weather_min_width">150dp</dimen>
+    <dimen name="widget_weather_min_height">75dp</dimen>
+    <dimen name="widget_weather_padding">12dp</dimen>
+    <dimen name="widget_weather_icon_size">32dp</dimen>
+    <dimen name="widget_weather_degree_text_size">46sp</dimen>
+    <dimen name="widget_weather_location_text_size">26sp</dimen>
 </resources>

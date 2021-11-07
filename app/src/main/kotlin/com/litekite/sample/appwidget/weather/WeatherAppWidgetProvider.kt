@@ -32,107 +32,6 @@ import com.litekite.sample.main.MainActivity
 
 class WeatherAppWidgetProvider : AppWidgetProvider() {
 
-    companion object {
-        private val TAG = WeatherAppWidgetProvider::class.java.simpleName
-
-        fun getProvider(context: Context) = ComponentName(
-            context,
-            WeatherAppWidgetProvider::class.java
-        )
-
-        fun updateWeatherAppWidget(
-            context: Context,
-            appWidgetId: Int,
-            appWidgetManager: AppWidgetManager
-        ) {
-            val widgetOptions: Bundle = appWidgetManager.getAppWidgetOptions(appWidgetId)
-
-            val minWidth = widgetOptions.getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_WIDTH)
-            val minHeight = widgetOptions.getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_HEIGHT)
-
-            createRemoteViews(
-                context,
-                SizeF(minWidth.toFloat(), minHeight.toFloat())
-            )?.let {
-                // Tell the AppWidgetManager to perform an update on the current app widget
-                appWidgetManager.updateAppWidget(appWidgetId, it)
-            }
-        }
-
-        /**
-         * Creates the RemoteViews for the given size.
-         *
-         * Specify the minimum width and height in dp and a layout,
-         * which you want to use for the specified size
-         *
-         * In the following case:
-         *
-         * - Small is used from
-         * 180dp (or minResizeWidth) x 120dp (or minResizeHeight)
-         * to 269dp (next cutoff point - 1) x 269dp (next cutoff point - 1)
-         *
-         * - Medium is used from
-         * 270dp x 110dp to 270dp x 279dp (next cutoff point - 1)
-         *
-         * - Large is used from
-         * 270dp x 280dp to 570dp (specified as maxResizeWidth) x 450dp (specified as maxResizeHeight)
-         */
-        private fun createRemoteViews(context: Context, size: SizeF): RemoteViews? {
-            Log.d(TAG, "createRemoteViews: size: $size")
-            if (size.width in 180f..269f && size.height in 120f..269f) {
-                return createSmallWeatherWidget(context)
-            } else if (size.width in 270f..329f && size.height in 120f..180f) {
-                return createMediumWeatherWidget(context)
-            } else if (size.width in 270f..570f && size.height in 120f..450f) {
-                return createLargeWeatherWidget(context)
-            }
-            return null
-        }
-
-        private fun createSmallWeatherWidget(context: Context): RemoteViews {
-            return RemoteViews(
-                context.packageName,
-                R.layout.layout_app_widget_weather_small
-            ).apply {
-                setOnClickPendingIntent(R.id.widget_weather, getWidgetPendingIntent(context))
-            }
-        }
-
-        private fun createMediumWeatherWidget(context: Context): RemoteViews {
-            return RemoteViews(
-                context.packageName,
-                R.layout.layout_app_widget_weather_medium
-            ).apply {
-                setOnClickPendingIntent(R.id.widget_weather, getWidgetPendingIntent(context))
-            }
-        }
-
-        private fun createLargeWeatherWidget(context: Context): RemoteViews {
-            return RemoteViews(
-                context.packageName,
-                R.layout.layout_app_widget_weather_large
-            ).apply {
-                setOnClickPendingIntent(R.id.widget_weather, getWidgetPendingIntent(context))
-            }
-        }
-
-        private fun getWidgetPendingIntent(context: Context): PendingIntent {
-            val flags = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
-            } else {
-                PendingIntent.FLAG_UPDATE_CURRENT
-            }
-
-            // Create an Intent to launch MainActivity
-            return PendingIntent.getActivity(
-                context,
-                0,
-                Intent(context, MainActivity::class.java),
-                flags
-            )
-        }
-    }
-
     /**
      * Called when the updatePeriodMillis in AppWidgetProviderInfo defined in app_widget_info.xml
      * interval expires and it's time to update the widget.
@@ -186,7 +85,6 @@ class WeatherAppWidgetProvider : AppWidgetProvider() {
      */
     override fun onDeleted(context: Context, appWidgetIds: IntArray) {
         Log.d(TAG, "onDeleted:")
-        super.onDeleted(context, appWidgetIds)
     }
 
     /**
@@ -219,7 +117,108 @@ class WeatherAppWidgetProvider : AppWidgetProvider() {
      * AS THE [AppWidgetProvider] DISPATCHES THROUGH ABOVE CALLBACKS.
      */
     override fun onReceive(context: Context?, intent: Intent?) {
-        Log.d(TAG, "onReceive:")
         super.onReceive(context, intent)
+        Log.d(TAG, "onReceive:")
+    }
+
+    companion object {
+        private val TAG = WeatherAppWidgetProvider::class.java.simpleName
+
+        fun getProvider(context: Context) = ComponentName(
+            context,
+            WeatherAppWidgetProvider::class.java
+        )
+
+        fun updateWeatherAppWidget(
+            context: Context,
+            appWidgetId: Int,
+            appWidgetManager: AppWidgetManager
+        ) {
+            val widgetOptions: Bundle = appWidgetManager.getAppWidgetOptions(appWidgetId)
+
+            val minWidth = widgetOptions.getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_WIDTH)
+            val minHeight = widgetOptions.getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_HEIGHT)
+
+            createRemoteViews(
+                context,
+                SizeF(minWidth.toFloat(), minHeight.toFloat())
+            )?.let {
+                // Tell the AppWidgetManager to perform an update on the current app widget
+                appWidgetManager.updateAppWidget(appWidgetId, it)
+            }
+        }
+
+        /**
+         * Creates the RemoteViews for the given size.
+         *
+         * Specify the minimum width and height in dp and a layout,
+         * which you want to use for the specified size
+         *
+         * In the following case:
+         *
+         * - Small is used from
+         * 180dp (or minResizeWidth) x 120dp (or minResizeHeight)
+         * to 269dp (next cutoff point - 1) x 269dp (next cutoff point - 1)
+         *
+         * - Medium is used from
+         * 270dp x 110dp to 270dp x 279dp (next cutoff point - 1)
+         *
+         * - Large is used from
+         * 270dp x 280dp to 570dp (specified as maxResizeWidth) x 450dp (specified as maxResizeHeight)
+         */
+        private fun createRemoteViews(context: Context, size: SizeF): RemoteViews? {
+            Log.d(TAG, "createRemoteViews: size: $size")
+            if (size.width in 150f..269f && size.height in 75f..269f) {
+                return createSmallWeatherWidget(context)
+            } else if (size.width in 270f..329f && size.height in 75f..150f) {
+                return createMediumWeatherWidget(context)
+            } else if (size.width in 270f..570f && size.height in 75f..450f) {
+                return createLargeWeatherWidget(context)
+            }
+            return null
+        }
+
+        private fun createSmallWeatherWidget(context: Context): RemoteViews {
+            return RemoteViews(
+                context.packageName,
+                R.layout.layout_app_widget_weather_small
+            ).apply {
+                setOnClickPendingIntent(R.id.widget_weather, getWidgetPendingIntent(context))
+            }
+        }
+
+        private fun createMediumWeatherWidget(context: Context): RemoteViews {
+            return RemoteViews(
+                context.packageName,
+                R.layout.layout_app_widget_weather_medium
+            ).apply {
+                setOnClickPendingIntent(R.id.widget_weather, getWidgetPendingIntent(context))
+            }
+        }
+
+        private fun createLargeWeatherWidget(context: Context): RemoteViews {
+            return RemoteViews(
+                context.packageName,
+                R.layout.layout_app_widget_weather_large
+            ).apply {
+                setOnClickPendingIntent(R.id.widget_weather, getWidgetPendingIntent(context))
+            }
+        }
+
+        private fun getWidgetPendingIntent(context: Context): PendingIntent {
+            val flags = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+            } else {
+                PendingIntent.FLAG_UPDATE_CURRENT
+            }
+
+            // Create an Intent to launch MainActivity
+            return PendingIntent.getActivity(
+                context,
+                0,
+                Intent(context, MainActivity::class.java),
+                flags
+            )
+        }
     }
 }
