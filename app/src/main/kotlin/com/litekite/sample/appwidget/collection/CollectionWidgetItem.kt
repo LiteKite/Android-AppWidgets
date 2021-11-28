@@ -13,21 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.litekite.sample.main
-
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import com.litekite.sample.R
+package com.litekite.sample.appwidget.collection
 
 /**
  * @author Vignesh S
  * @version 1.0, 04/11/2021
  * @since 1.0
  */
-class MainActivity : AppCompatActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.layout_main)
-    }
-}
+data class CollectionWidgetItem(val text: String)

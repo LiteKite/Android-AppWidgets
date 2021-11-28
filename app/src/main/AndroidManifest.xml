@@ -64,7 +64,7 @@
         </receiver>
 
         <receiver
-            android:name=".appwidget.CollectionWidgetProvider"
+            android:name=".appwidget.collection.CollectionWidgetProvider"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -75,7 +75,8 @@
         </receiver>
 
         <service
-            android:name=".appwidget.RemoteViewService"
+            android:name=".appwidget.collection.CollectionWidgetRVService"
+            android:exported="true"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
 
     </application>

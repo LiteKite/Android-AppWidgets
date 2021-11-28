@@ -26,6 +26,10 @@ import com.litekite.sample.R
 /**
  * Configure the App Widget color, size, update period or other functionality settings
  * when the widget is created.
+ *
+ * @author Vignesh S
+ * @version 1.0, 04/11/2021
+ * @since 1.0
  */
 class AppWidgetConfigActivity : AppCompatActivity() {
 

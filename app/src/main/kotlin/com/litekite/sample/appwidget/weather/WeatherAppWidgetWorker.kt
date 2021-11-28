@@ -26,6 +26,11 @@ import dagger.assisted.AssistedInject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
+/**
+ * @author Vignesh S
+ * @version 1.0, 07/11/2021
+ * @since 1.0
+ */
 @HiltWorker
 class WeatherAppWidgetWorker @AssistedInject constructor(
     @Assisted val context: Context,

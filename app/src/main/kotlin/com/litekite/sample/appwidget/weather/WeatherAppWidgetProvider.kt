@@ -30,6 +30,11 @@ import androidx.work.WorkManager
 import com.litekite.sample.R
 import com.litekite.sample.main.MainActivity
 
+/**
+ * @author Vignesh S
+ * @version 1.0, 04/11/2021
+ * @since 1.0
+ */
 class WeatherAppWidgetProvider : AppWidgetProvider() {
 
     /**

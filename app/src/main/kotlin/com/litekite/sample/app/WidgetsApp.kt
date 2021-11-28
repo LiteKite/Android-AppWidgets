@@ -23,6 +23,13 @@ import dagger.hilt.android.HiltAndroidApp
 import javax.inject.Inject
 import androidx.work.Configuration as WorkManagerConfig
 
+/**
+ * Application class.
+ *
+ * @author Vignesh S
+ * @version 1.0, 07/11/2021
+ * @since 1.0
+ */
 @HiltAndroidApp
 class WidgetsApp : Application(), WorkManagerConfig.Provider {
 

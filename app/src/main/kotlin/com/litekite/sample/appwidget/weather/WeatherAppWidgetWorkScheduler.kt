@@ -29,6 +29,11 @@ import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import java.util.concurrent.TimeUnit
 
+/**
+ * @author Vignesh S
+ * @version 1.0, 07/11/2021
+ * @since 1.0
+ */
 object WeatherAppWidgetWorkScheduler {
 
     fun scheduleOneShotWork(context: Context) {

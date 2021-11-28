@@ -13,6 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.litekite.sample.appwidget
+package com.litekite.sample.appwidget.collection
 
-data class CollectionWidgetItem(val text: String)
+import android.content.Intent
+import android.widget.RemoteViewsService
+
+/**
+ * @author Vignesh S
+ * @version 1.0, 04/11/2021
+ * @since 1.0
+ */
+class CollectionWidgetRVService : RemoteViewsService() {
+
+    override fun onGetViewFactory(intent: Intent): RemoteViewsFactory {
+        return CollectionWidgetRVFactory(this.applicationContext, intent)
+    }
+}
